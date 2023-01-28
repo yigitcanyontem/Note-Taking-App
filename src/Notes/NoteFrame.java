@@ -31,11 +31,13 @@ public class NoteFrame extends JFrame {
     static JScrollPane scrollPane;
     static JButton[] buttons;
     static Map<String,String> title_note_map;
+    static ImageIcon icon = new ImageIcon(Objects.requireNonNull(NoteFrame.class.getResource("/resources/notebook.png")));
 
     public NoteFrame() throws HeadlessException {
         super("NotePad");
         setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
+        setIconImage(icon.getImage());
 
         gc.weightx = 1;
         gc.weighty = 1;
@@ -97,7 +99,7 @@ public class NoteFrame extends JFrame {
         note = new JTextArea();
         note.setPreferredSize(new Dimension(1000,640));
         note.setFont(new Font("TimesNewRoman",Font.PLAIN,20));
-
+        note.setMargin( new Insets(15,15,15,15) );
         scrollPane = new JScrollPane(jList);
         scrollPane.setPreferredSize(new Dimension(400,700));
 
@@ -106,6 +108,9 @@ public class NoteFrame extends JFrame {
             public void valueChanged(ListSelectionEvent e) {
                 note_title.setText("  "+jList.getSelectedValue());
                 note.setText(title_note_map.get(jList.getSelectedValue()));
+                save.setEnabled(true);
+                rename.setEnabled(true);
+                delete.setEnabled(true);
             }
         });
 
@@ -191,6 +196,10 @@ public class NoteFrame extends JFrame {
         new_note.addActionListener(new NewNoteBTNListener());
         delete.addActionListener(new DeleteBTNListener());
         rename.addActionListener(new RenameBTNListener());
+
+        save.setEnabled(false);
+        delete.setEnabled(false);
+        rename.setEnabled(false);
 
         btnpanel.add(new_note);
         btnpanel.add(save, "gapleft 10");

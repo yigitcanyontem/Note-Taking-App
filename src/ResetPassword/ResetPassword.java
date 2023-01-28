@@ -3,12 +3,14 @@ package ResetPassword;
 import LoginPage.LoginBTNListener;
 import LoginPage.MainFrame;
 import LoginPage.NewUserBTNListener;
+import Notes.NoteFrame;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Objects;
 
 public class ResetPassword extends JFrame {
     static JTextField reset_email;
@@ -16,10 +18,12 @@ public class ResetPassword extends JFrame {
     static JButton resetBTN;
     static JTextField reset_resetPass;
     static JButton go_back;
+    static ImageIcon icon = new ImageIcon(Objects.requireNonNull(NoteFrame.class.getResource("/resources/reset.png")));
     public ResetPassword() throws HeadlessException {
         super("Reset Password!");
         setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
+        setIconImage(icon.getImage());
 
         gc.weightx = 1;
         gc.weighty = 1;
@@ -69,7 +73,7 @@ public class ResetPassword extends JFrame {
 
         panel.add(go_back,"align right, wrap 30");
         panel.add(pass,"align center, wrap");
-        panel.add(new JLabel("E-Mail"),"wrap");
+        panel.add(new JLabel("Username"),"wrap");
         panel.add(reset_email,"span, grow, wrap");
         panel.add(new JLabel("New Password"),"wrap");
         panel.add(reset_password, "span, grow,wrap");

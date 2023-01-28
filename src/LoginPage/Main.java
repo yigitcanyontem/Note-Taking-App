@@ -1,6 +1,5 @@
 package LoginPage;
 
-import Notes.NoteFrame;
 
 import javax.swing.*;
 import java.sql.SQLException;

@@ -1,5 +1,6 @@
 package LoginPage;
 
+import Notes.NoteFrame;
 import ResetPassword.ResetPassword;
 import net.miginfocom.swing.MigLayout;
 
@@ -8,6 +9,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.*;
+import java.util.Objects;
 
 public class MainFrame extends JFrame {
     public static JTextField email;
@@ -15,10 +17,12 @@ public class MainFrame extends JFrame {
     static JButton loginBTN;
     static JButton newUserBTN;
     static JButton resetPass;
+    static ImageIcon icon = new ImageIcon(Objects.requireNonNull(NoteFrame.class.getResource("/resources/notebook.png")));
     public MainFrame() throws HeadlessException {
         super("Login");
         setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
+        setIconImage(icon.getImage());
 
         gc.weightx = 1;
         gc.weighty = 1;
@@ -76,7 +80,7 @@ public class MainFrame extends JFrame {
         panel.add(resetPass,"align left");
         panel.add(newUserBTN,"align right, wrap 50");
         panel.add(login,"span ,align center, wrap");
-        panel.add(new JLabel("E-Mail"),"wrap");
+        panel.add(new JLabel("Username"),"wrap");
         panel.add(email,"span, grow, wrap");
         panel.add(new JLabel("Password"),"wrap");
         panel.add(password, "span, grow,wrap");

@@ -1,17 +1,22 @@
 package LoginPage;
 
+import Notes.NoteFrame;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Objects;
 
 public class ErrorFrame extends JFrame {
+    static ImageIcon icon = new ImageIcon(Objects.requireNonNull(NoteFrame.class.getResource("/resources/message.png")));
+
     public ErrorFrame(String text) throws HeadlessException {
         super(text);
         setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
+        setIconImage(icon.getImage());
 
         gc.weightx = 1;
         gc.weighty = 1;

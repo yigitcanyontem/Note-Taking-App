@@ -3,12 +3,14 @@ package CreateUser;
 import LoginPage.LoginBTNListener;
 import LoginPage.MainFrame;
 import LoginPage.NewUserBTNListener;
+import Notes.NoteFrame;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Objects;
 
 public class CreateUserFrame extends JFrame {
     static JTextField create_email;
@@ -16,11 +18,13 @@ public class CreateUserFrame extends JFrame {
     static JTextField reset_code;
     static JButton createBTN;
     static JButton go_back;
+    static ImageIcon icon = new ImageIcon(Objects.requireNonNull(NoteFrame.class.getResource("/resources/createuser.png")));
 
     public CreateUserFrame() throws HeadlessException {
         super("Register");
         setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
+        setIconImage(icon.getImage());
 
         gc.weightx = 1;
         gc.weighty = 1;
@@ -74,7 +78,7 @@ public class CreateUserFrame extends JFrame {
         register.setFont(new Font("TimesNewRoman",Font.BOLD,20));
         panel.add(go_back,"align right, wrap 30");
         panel.add(register,"align center, wrap");
-        panel.add(new JLabel("E-Mail"),"wrap");
+        panel.add(new JLabel("Username"),"wrap");
         panel.add(create_email,"span, grow, wrap");
         panel.add(new JLabel("Password"),"wrap");
         panel.add(create_password, "span, grow,wrap");

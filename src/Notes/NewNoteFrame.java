@@ -10,17 +10,20 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Objects;
 
 import static Notes.NoteFrame.note_List;
 
 
 public class NewNoteFrame extends JFrame {
+    static ImageIcon icon = new ImageIcon(Objects.requireNonNull(NoteFrame.class.getResource("/resources/newnote.png")));
     static JTextField new_title;
     static JButton note_saveBTN;
     public NewNoteFrame() throws HeadlessException {
         super("New Note");
         setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
+        setIconImage(icon.getImage());
 
         gc.weightx = 1;
         gc.weighty = 1;

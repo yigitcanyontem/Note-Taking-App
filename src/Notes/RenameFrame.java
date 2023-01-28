@@ -11,6 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Objects;
 
 import static Notes.NoteFrame.jList;
 import static Notes.NoteFrame.note_List;
@@ -18,10 +19,12 @@ import static Notes.NoteFrame.note_List;
 public class RenameFrame extends JFrame{
     static JTextField new_title;
     static JButton note_saveBTN;
+    static ImageIcon icon = new ImageIcon(Objects.requireNonNull(NoteFrame.class.getResource("/resources/rename.png")));
     public RenameFrame() throws HeadlessException {
         super("Rename Title");
         setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
+        setIconImage(icon.getImage());
 
         gc.weightx = 1;
         gc.weighty = 1;
@@ -31,7 +34,7 @@ public class RenameFrame extends JFrame{
         gc.insets = new Insets(0,0,0,0);
         add(panel(), gc);
 
-        setSize(750,750);
+        setSize(750,400);
         setLocationRelativeTo(null);
         getContentPane().setBackground(new Color(153, 183, 172));
         setResizable(true);
@@ -51,6 +54,8 @@ public class RenameFrame extends JFrame{
 
         new_title = new JTextField(50);
         new_title.setFont(new Font("TimesNewRoman",Font.PLAIN,20));
+        new_title.setText(jList.getSelectedValue());
+
         note_saveBTN = new JButton("RENAME");
         note_saveBTN.addActionListener(new ActionListener() {
             @Override
