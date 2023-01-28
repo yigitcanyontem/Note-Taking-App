@@ -80,7 +80,6 @@ public class NewNoteFrame extends JFrame {
             }
 
             String query = String.format("INSERT INTO notes VALUES('%s','%s','')", MainFrame.email.getText(),new_title.getText());
-            System.out.println(query);
             PreparedStatement stmt = SQLConnection.connection.prepareStatement(query);
 
             int rowAffected = stmt.executeUpdate();
