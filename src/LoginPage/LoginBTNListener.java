@@ -16,6 +16,7 @@ public class LoginBTNListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         boolean b = true;
+        boolean c = true;
         try {
 
             String query = String.format("SELECT * FROM users WHERE email = '%s' ", email.getText());
@@ -34,17 +35,23 @@ public class LoginBTNListener implements ActionListener {
                     b = false;
                 }else if (resultSet.getString("email").equals(email.getText()) && !resultSet.getString("password").equals(String.valueOf(password.getPassword()))){
                     new ErrorFrame("Wrong Password!");
+                    c = false;
+                }else if (resultSet.getString("email").equals(email.getText()) && String.valueOf(password.getPassword()).equals("")){
+                    new ErrorFrame("Fill All!");
                 }
             }
             if (b){
-                if (email.getText().equals("") || String.valueOf(password.getPassword()).equals("")){
+                if (email.getText().equals("")){
                     new ErrorFrame("Fill All!");
                 }else{
-                    new ErrorFrame("Wrong Info!");
+                    if (c){
+                        new ErrorFrame("Wrong Info!");
+                    }
+
                 }
             }
         } catch (SQLException ex) {
-            new ErrorFrame("Fill All!");
+            //
         }
     }
 }

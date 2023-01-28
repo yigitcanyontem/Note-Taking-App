@@ -12,14 +12,17 @@ import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import static LoginPage.MainFrame.bg_color;
+import static LoginPage.MainFrame.label_color;
+import static LoginPage.MainFrame.txt_color;
 
 public class NoteFrame extends JFrame {
     static DefaultListModel<String> note_List;
     static JLabel note_title;
-    static JList<String> jList;
+    public static JList<String> jList;
     static JTextArea note;
     static JLabel comment;
-    static Color color = new Color(153, 183, 172);
+    static Color color = bg_color;
     static ImageIcon new_note_icon;
     static ImageIcon save_icon;
     static ImageIcon delete_icon;
@@ -50,7 +53,7 @@ public class NoteFrame extends JFrame {
         setSize(1600,900);
         setLocationRelativeTo(null);
         getContentPane().setBackground(color);
-        setResizable(true);
+        setResizable(false);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
 
@@ -67,22 +70,6 @@ public class NoteFrame extends JFrame {
         panel.setLayout(new GridBagLayout());
         GridBagConstraints gc = new GridBagConstraints();
 
-        new_note_icon = new ImageIcon(Objects.requireNonNull(NoteFrame.class.getResource("/resources/newnote.png")));
-        save_icon = new ImageIcon(Objects.requireNonNull(NoteFrame.class.getResource("/resources/save.png")));
-        delete_icon = new ImageIcon(Objects.requireNonNull(NoteFrame.class.getResource("/resources/delete.png")));
-
-        new_note = new JButton(new_note_icon);
-        save = new JButton(save_icon);
-        delete = new JButton(delete_icon);
-
-        buttons = new JButton[]{new_note, save, delete};
-        for (JButton button:buttons){
-            button.setBackground(color);
-            button.setPreferredSize(new Dimension(40,40));
-            button.setBorderPainted(false);
-        }
-
-
         note_List = new DefaultListModel<>();
 
         listAdder();
@@ -95,13 +82,17 @@ public class NoteFrame extends JFrame {
         note_title.setPreferredSize(new Dimension(1000,50));
         note_title.setBorder(BorderFactory.createEtchedBorder());
         note_title.setFont(new Font("TimesNewRoman",Font.BOLD,24));
+        note_title.setForeground(label_color);
 
         note = new JTextArea();
         note.setPreferredSize(new Dimension(1000,640));
         note.setFont(new Font("TimesNewRoman",Font.PLAIN,20));
         note.setMargin( new Insets(15,15,15,15) );
+        note.setBackground(txt_color);
+
         scrollPane = new JScrollPane(jList);
         scrollPane.setPreferredSize(new Dimension(400,700));
+        jList.setBackground(txt_color);
 
         jList.addListSelectionListener(new ListSelectionListener() {
             @Override
@@ -111,12 +102,17 @@ public class NoteFrame extends JFrame {
                 save.setEnabled(true);
                 rename.setEnabled(true);
                 delete.setEnabled(true);
+                if (jList.isSelectionEmpty()){
+                    save.setEnabled(false);
+                    rename.setEnabled(false);
+                    delete.setEnabled(false);
+                }
             }
         });
 
         comment = new JLabel("Welcome to Note App :)");
         comment.setFont(new Font("TimesNewRoman",Font.BOLD,30));
-
+        comment.setForeground(label_color);
 
         gc.weightx = 0;
         gc.weighty = 1;
@@ -147,7 +143,7 @@ public class NoteFrame extends JFrame {
         gc.gridx = 1;
         gc.gridy = 1;
         gc.anchor = GridBagConstraints.NORTH;
-        gc.insets = new Insets(10,0,0,0);
+        gc.insets = new Insets(20,0,0,0);
         panel.add(comment, gc);
 
         gc.weightx = 0;
@@ -159,7 +155,7 @@ public class NoteFrame extends JFrame {
         panel.add(button_panel(), gc);
 
 
-        panel.setBackground(new Color(153, 183, 172));
+        panel.setBackground(bg_color);
         panel.setMinimumSize(new Dimension(1600,900));
         return panel;
     }
@@ -190,6 +186,7 @@ public class NoteFrame extends JFrame {
             button.setBackground(color);
             button.setPreferredSize(new Dimension(40,40));
             button.setBorder(BorderFactory.createEtchedBorder());
+            button.setBackground(label_color);
         }
 
         save.addActionListener(new SaveBTNListener());
@@ -206,7 +203,7 @@ public class NoteFrame extends JFrame {
         btnpanel.add(delete,"gapleft 10");
         btnpanel.add(rename,"gapleft 10");
 
-        btnpanel.setBackground(new Color(153, 183, 172));
+        btnpanel.setBackground(bg_color);
         btnpanel.setMinimumSize(new Dimension(150,50));
         return btnpanel;
     }

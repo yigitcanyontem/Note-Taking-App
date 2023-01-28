@@ -11,6 +11,9 @@ import java.awt.event.ActionListener;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Objects;
+import static LoginPage.MainFrame.bg_color;
+import static LoginPage.MainFrame.label_color;
+import static LoginPage.MainFrame.txt_color;
 
 import static Notes.NoteFrame.note_List;
 
@@ -33,9 +36,9 @@ public class NewNoteFrame extends JFrame {
         gc.insets = new Insets(0,0,0,0);
         add(panel(), gc);
 
-        setSize(750,750);
+        setSize(750,400);
         setLocationRelativeTo(null);
-        getContentPane().setBackground(new Color(153, 183, 172));
+        getContentPane().setBackground(bg_color);
         setResizable(true);
         setVisible(true);
 
@@ -53,7 +56,9 @@ public class NewNoteFrame extends JFrame {
 
         new_title = new JTextField(50);
         new_title.setFont(new Font("TimesNewRoman",Font.PLAIN,20));
+        new_title.setBackground(txt_color);
         note_saveBTN = new JButton("CREATE");
+        note_saveBTN.setBackground(label_color);
         note_saveBTN.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -62,14 +67,17 @@ public class NewNoteFrame extends JFrame {
             }
         });
 
+
         JLabel login = new JLabel("Enter The Title!");
         login.setFont(new Font("TimesNewRoman",Font.BOLD,30));
+        login.setForeground(label_color);
+
         panel.add(login,"span,align center, wrap 5");
         panel.add(new_title,"span, align center, wrap 15");
         panel.add(note_saveBTN, "span, align center");
 
-        panel.setBackground(new Color(153, 183, 172));
-        panel.setMinimumSize(new Dimension(600,300));
+        panel.setBackground(bg_color);
+        panel.setMinimumSize(new Dimension(600,200));
         return panel;
     }
 

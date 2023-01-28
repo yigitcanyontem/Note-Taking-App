@@ -12,6 +12,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
 
+import static LoginPage.MainFrame.bg_color;
+import static LoginPage.MainFrame.label_color;
+import static LoginPage.MainFrame.txt_color;
+
 public class CreateUserFrame extends JFrame {
     static JTextField create_email;
     static JPasswordField create_password;
@@ -36,7 +40,7 @@ public class CreateUserFrame extends JFrame {
 
         setSize(750,750);
         setLocationRelativeTo(null);
-        getContentPane().setBackground(new Color(153, 183, 172));
+        getContentPane().setBackground(bg_color);
         setResizable(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
@@ -54,14 +58,18 @@ public class CreateUserFrame extends JFrame {
         panel.setLayout(new MigLayout("fillx"));
 
         create_email = new JTextField(50);
+        create_email.setBackground(txt_color);
         create_password = new JPasswordField(50);
+        create_password.setBackground(txt_color);
 
         createBTN = new JButton("CREATE");
         createBTN.addActionListener(new CreateBTNListener());
+        createBTN.setBackground(label_color);
 
         reset_code = new JTextField(50);
 
         go_back = new JButton("LOGIN");
+        go_back.setBackground(label_color);
         go_back.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -74,21 +82,34 @@ public class CreateUserFrame extends JFrame {
             }
         });
 
+        JLabel resetlabel = new JLabel("Reset Code");
+        resetlabel.setForeground(label_color);
+        JLabel userlabel = new JLabel("Username");
+        userlabel.setForeground(label_color);
+        JLabel passwordlabel = new JLabel("Password");
+        passwordlabel.setForeground(label_color);
+
         JLabel register = new JLabel("Register!");
-        register.setFont(new Font("TimesNewRoman",Font.BOLD,20));
+        register.setFont(new Font("TimesNewRoman",Font.BOLD,30));
+        register.setForeground(label_color);
+
+        resetlabel.setFont(new Font("TimesNewRoman",Font.PLAIN,15));
+        userlabel.setFont(new Font("TimesNewRoman",Font.PLAIN,15));
+        passwordlabel.setFont(new Font("TimesNewRoman",Font.PLAIN,15));
+
         panel.add(go_back,"align right, wrap 30");
         panel.add(register,"align center, wrap");
-        panel.add(new JLabel("Username"),"wrap");
+        panel.add(userlabel,"wrap");
         panel.add(create_email,"span, grow, wrap");
-        panel.add(new JLabel("Password"),"wrap");
+        panel.add(passwordlabel,"wrap");
         panel.add(create_password, "span, grow,wrap");
-        panel.add(new JLabel("Reset Code"),"wrap");
+        panel.add(resetlabel,"wrap");
         panel.add(reset_code, "span, grow,wrap");
         panel.add(createBTN,"align center");
 
 
 
-        panel.setBackground(new Color(153, 183, 172));
+        panel.setBackground(bg_color);
         panel.setMinimumSize(new Dimension(600,300));
         return panel;
     }

@@ -9,6 +9,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
 
+import static LoginPage.MainFrame.bg_color;
+import static LoginPage.MainFrame.label_color;
+import static Notes.NoteFrame.jList;
+
 public class ErrorFrame extends JFrame {
     static ImageIcon icon = new ImageIcon(Objects.requireNonNull(NoteFrame.class.getResource("/resources/message.png")));
 
@@ -26,10 +30,9 @@ public class ErrorFrame extends JFrame {
         gc.insets = new Insets(0,0,0,0);
         add(panel(text), gc);
 
-
         setSize(350,200);
         setLocationRelativeTo(null);
-        getContentPane().setBackground(new Color(153, 183, 172));
+        getContentPane().setBackground(bg_color);
         setResizable(false);
         setVisible(true);
 
@@ -47,6 +50,7 @@ public class ErrorFrame extends JFrame {
 
 
         JButton close = new JButton("CLOSE");
+        close.setBackground(label_color);
         close.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -62,12 +66,13 @@ public class ErrorFrame extends JFrame {
 
         JLabel login = new JLabel(text);
         login.setFont(new Font("TimesNewRoman",Font.BOLD,20));
-        login.setForeground(Color.darkGray);
+        login.setForeground(label_color);
+
         panel.add(login,"align center, wrap 15");
         panel.add(close,"align center");
 
 
-        panel.setBackground(new Color(153, 183, 172));
+        panel.setBackground(bg_color);
         panel.setMinimumSize(new Dimension(600,300));
         return panel;
     }
