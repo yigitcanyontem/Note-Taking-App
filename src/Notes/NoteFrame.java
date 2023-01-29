@@ -51,9 +51,10 @@ public class NoteFrame extends JFrame {
         add(panel(), gc);
 
         setSize(1600,900);
+        setMinimumSize(new Dimension(1600,900));
         setLocationRelativeTo(null);
         getContentPane().setBackground(color);
-        setResizable(false);
+        setResizable(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
 
