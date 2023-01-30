@@ -46,9 +46,9 @@ public class ResetBTNListener implements ActionListener {
 
             ResultSet resultSet = stmt.executeQuery();
             while (resultSet.next()){
-                if (resultSet.getString("email").equals(ResetPassword.reset_email.getText()) && resultSet.getString("reset_code").equals(ResetPassword.reset_resetPass.getText())){
+                if (resultSet.getString("email").equals(ResetPassword.reset_email.getText()) && resultSet.getString("resetcode").equals(ResetPassword.reset_resetPass.getText())){
                     return true;
-                }else if (!resultSet.getString("email").equals(ResetPassword.reset_email.getText()) || !resultSet.getString("reset_code").equals(ResetPassword.reset_resetPass.getText())){
+                }else if (!resultSet.getString("email").equals(ResetPassword.reset_email.getText()) || !resultSet.getString("resetcode").equals(ResetPassword.reset_resetPass.getText())){
                     new ErrorFrame("Incorrect Info!");
                 }
             }
