@@ -1,7 +1,7 @@
 
 # NotePad
 
-This is a notepad app with JDBC (PostgreSQL) integration. Made with Java Swing.
+This is a notepad app with JDBC (SQLite) integration. Made with Java Swing.
 
 ## ScreenShots
 
@@ -21,10 +21,6 @@ Start Adding Notes
 
 
 ## How to Use On Your PC
-
-- Create a database server on PostgreSQL
-- Create a "notes" and a "users" table using the sql files in "SQL Files" folder
-- Change the connection on SQLConnection.java class with your url and user info
 - Create an account and start adding notes
   
 ## Buttons
