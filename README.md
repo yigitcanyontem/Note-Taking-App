@@ -21,6 +21,7 @@ Start Adding Notes
 
 
 ## How to Use On Your PC
+- Run the notepad.jar in jar folder
 - Create an account and start adding notes
   
 ## Buttons
