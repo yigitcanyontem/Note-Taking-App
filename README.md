@@ -23,6 +23,7 @@ Start Adding Notes
 ## How to Use On Your PC
 - Run the Notepad.jar in the jar folder
 - Create an account and start adding notes
+- SQLite creates a db in AppData\Local\Temp so beware of it when cleaning temp folder
   
 ## Buttons
 - New Note - Create a new note
