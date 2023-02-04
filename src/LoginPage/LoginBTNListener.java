@@ -1,7 +1,9 @@
 package LoginPage;
 
 import Notes.NoteFrame;
+import com.formdev.flatlaf.intellijthemes.FlatHighContrastIJTheme;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,6 +33,7 @@ public class LoginBTNListener implements ActionListener {
                             f.dispose();
                         }
                     }
+
                     new NoteFrame();
                     b = false;
                 }else if (resultSet.getString("email").equals(email.getText()) && !resultSet.getString("password").equals(String.valueOf(password.getPassword()))){

@@ -2,6 +2,7 @@ package ResetPassword;
 
 import LoginPage.MainFrame;
 import Notes.NoteFrame;
+import com.formdev.flatlaf.FlatIntelliJLaf;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
@@ -10,9 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
 
-import static LoginPage.MainFrame.bg_color;
-import static LoginPage.MainFrame.label_color;
-import static LoginPage.MainFrame.txt_color;
+import static LoginPage.MainFrame.*;
 
 public class ResetPassword extends JFrame {
     static JTextField reset_email;
@@ -37,17 +36,10 @@ public class ResetPassword extends JFrame {
 
         setSize(750,750);
         setLocationRelativeTo(null);
-        getContentPane().setBackground(bg_color);
         setResizable(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
 
-        try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException |
-                 UnsupportedLookAndFeelException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     JPanel panel(){
@@ -58,16 +50,10 @@ public class ResetPassword extends JFrame {
         reset_password = new JPasswordField(50);
         reset_resetPass = new JTextField(50);
 
-        reset_email.setBackground(txt_color);
-        reset_password.setBackground(txt_color);
-        reset_resetPass.setBackground(txt_color);
-
         resetBTN = new JButton("RESET");
         resetBTN.addActionListener(new ResetBTNListener());
-        resetBTN.setBackground(label_color);
 
         go_back = new JButton("LOGIN");
-        go_back.setBackground(label_color);
         go_back.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -78,15 +64,11 @@ public class ResetPassword extends JFrame {
 
         JLabel pass = new JLabel("Reset Password!");
         pass.setFont(new Font("TimesNewRoman",Font.BOLD,20));
-        pass.setForeground(label_color);
 
 
         JLabel userlabel = new JLabel("Username");
-        userlabel.setForeground(label_color);
         JLabel passwordlabel = new JLabel("New Password");
-        passwordlabel.setForeground(label_color);
         JLabel resetlabel = new JLabel("Reset Code");
-        resetlabel.setForeground(label_color);
 
         userlabel.setFont(new Font("TimesNewRoman",Font.PLAIN,15));
         passwordlabel.setFont(new Font("TimesNewRoman",Font.PLAIN,15));
@@ -103,7 +85,6 @@ public class ResetPassword extends JFrame {
         panel.add(resetBTN,"align center");
 
 
-        panel.setBackground(bg_color);
         panel.setMinimumSize(new Dimension(600,300));
         return panel;
     }

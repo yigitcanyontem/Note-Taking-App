@@ -8,9 +8,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Timer;
+import java.util.TimerTask;
 
-import static Notes.NoteFrame.jList;
-import static Notes.NoteFrame.note_List;
+import static Notes.NoteFrame.*;
 
 public class DeleteBTNListener implements ActionListener {
     @Override
@@ -21,9 +22,21 @@ public class DeleteBTNListener implements ActionListener {
 
             int rowAffected = stmt.executeUpdate();
             if(rowAffected == 1) {
-                new ErrorFrame("Deleted!");
                 note_List.clear();
                 NoteFrame.listAdder();
+                comment.setText("Deleted");
+                try{
+                    jList.setSelectedIndex(0);
+                }catch (NullPointerException s){
+                    //
+                }
+                java.util.Timer timer = new Timer();
+                timer.schedule(new TimerTask() {
+                    @Override
+                    public void run() {
+                        comment.setText("");
+                    }
+                },1000);
             }
         } catch (SQLException ex) {
             new ErrorFrame("Error!");

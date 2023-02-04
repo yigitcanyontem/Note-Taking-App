@@ -3,6 +3,7 @@ package Notes;
 import DB.SQLConnection;
 import LoginPage.ErrorFrame;
 import LoginPage.MainFrame;
+import com.formdev.flatlaf.FlatIntelliJLaf;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.*;
 import java.awt.*;
@@ -11,10 +12,9 @@ import java.awt.event.ActionListener;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Objects;
-import static LoginPage.MainFrame.bg_color;
-import static LoginPage.MainFrame.label_color;
-import static LoginPage.MainFrame.txt_color;
 
+import static LoginPage.MainFrame.*;
+import static Notes.NoteFrame.jList;
 import static Notes.NoteFrame.note_List;
 
 
@@ -35,19 +35,11 @@ public class NewNoteFrame extends JFrame {
         gc.anchor = GridBagConstraints.CENTER;
         gc.insets = new Insets(0,0,0,0);
         add(panel(), gc);
-
+        getRootPane().setDefaultButton(note_saveBTN);
         setSize(750,400);
         setLocationRelativeTo(null);
-        getContentPane().setBackground(bg_color);
         setResizable(true);
         setVisible(true);
-
-        try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException |
-                 UnsupportedLookAndFeelException e) {
-            throw new RuntimeException(e);
-        }
     }
 
     JPanel panel(){
@@ -56,27 +48,27 @@ public class NewNoteFrame extends JFrame {
 
         new_title = new JTextField(50);
         new_title.setFont(new Font("TimesNewRoman",Font.PLAIN,20));
-        new_title.setBackground(txt_color);
         note_saveBTN = new JButton("CREATE");
-        note_saveBTN.setBackground(label_color);
         note_saveBTN.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new_note_query();
                 dispose();
+                try{
+                    jList.setSelectedIndex(0);
+                }catch (NullPointerException s){
+                    //
+                }
             }
         });
 
 
         JLabel login = new JLabel("Enter The Title!");
         login.setFont(new Font("TimesNewRoman",Font.BOLD,30));
-        login.setForeground(label_color);
 
         panel.add(login,"span,align center, wrap 5");
         panel.add(new_title,"span, align center, wrap 15");
         panel.add(note_saveBTN, "span, align center");
-
-        panel.setBackground(bg_color);
         panel.setMinimumSize(new Dimension(600,200));
         return panel;
     }
@@ -92,7 +84,6 @@ public class NewNoteFrame extends JFrame {
 
             int rowAffected = stmt.executeUpdate();
             if(rowAffected == 1) {
-                new ErrorFrame("Created!");
                 note_List.clear();
                 NoteFrame.listAdder();
             }
