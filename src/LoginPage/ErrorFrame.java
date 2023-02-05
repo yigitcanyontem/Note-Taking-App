@@ -1,17 +1,12 @@
 package LoginPage;
 
 import Notes.NoteFrame;
-import com.formdev.flatlaf.FlatIntelliJLaf;
 import net.miginfocom.swing.MigLayout;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
-
-import static LoginPage.MainFrame.*;
-import static Notes.NoteFrame.jList;
 
 public class ErrorFrame extends JFrame {
     static JButton close = new JButton("CLOSE");

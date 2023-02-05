@@ -3,7 +3,6 @@ package Notes;
 import DB.SQLConnection;
 import LoginPage.ErrorFrame;
 import LoginPage.MainFrame;
-import com.formdev.flatlaf.FlatIntelliJLaf;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -22,7 +21,6 @@ public class NoteFrame extends JFrame {
     public static JList<String> jList;
     static JTextArea note;
     static JLabel comment;
-    //static Color color = bg_color;
     static ImageIcon new_note_icon;
     static ImageIcon save_icon;
     static ImageIcon delete_icon;

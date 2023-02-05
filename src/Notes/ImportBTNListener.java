@@ -26,13 +26,11 @@ public class ImportBTNListener implements ActionListener {
         fileChooser = new JFileChooser();
         fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
         fileChooser.setAcceptAllFileFilterUsed(false);
-
         fileChooser.addChoosableFileFilter(new FileFilter() {
             @Override
             public boolean accept(File f) {
                 return f.isDirectory() || f.getName().toLowerCase().endsWith(".txt");
             }
-
             @Override
             public String getDescription() {
                 return "Text Files (*.txt)";
@@ -56,6 +54,7 @@ public class ImportBTNListener implements ActionListener {
                 }catch (NullPointerException s){
                     //
                 }
+
                 java.util.Timer timer = new Timer();
                 timer.schedule(new TimerTask() {
                     @Override

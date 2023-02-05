@@ -2,17 +2,11 @@ package LoginPage;
 
 import Notes.NoteFrame;
 import ResetPassword.ResetPassword;
-import com.formdev.flatlaf.*;
-import com.formdev.flatlaf.intellijthemes.FlatGruvboxDarkSoftIJTheme;
-import com.formdev.flatlaf.themes.FlatMacDarkLaf;
-import com.formdev.flatlaf.themes.FlatMacLightLaf;
 import net.miginfocom.swing.MigLayout;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.*;
 import java.util.Objects;
 
 public class MainFrame extends JFrame {
@@ -22,10 +16,8 @@ public class MainFrame extends JFrame {
     static JButton newUserBTN;
     static JButton resetPass;
     public static JButton dark_light_mode;
-
     static ImageIcon dark = new ImageIcon(Objects.requireNonNull(NoteFrame.class.getResource("/resources/dark.png")));
     static ImageIcon light = new ImageIcon(Objects.requireNonNull(NoteFrame.class.getResource("/resources/light.png")));
-
     static ImageIcon icon = new ImageIcon(Objects.requireNonNull(NoteFrame.class.getResource("/resources/notebook.png")));
     public MainFrame() throws HeadlessException {
         super("Login");
@@ -40,8 +32,6 @@ public class MainFrame extends JFrame {
         gc.anchor = GridBagConstraints.CENTER;
         gc.insets = new Insets(0,0,0,0);
         add(panel(), gc);
-
-
 
         setSize(1016,751);
         setLocationRelativeTo(null);
@@ -63,8 +53,6 @@ public class MainFrame extends JFrame {
         loginBTN = new JButton("LOGIN");
         loginBTN.addActionListener(new LoginBTNListener());
         getRootPane().setDefaultButton(loginBTN);
-
-
 
         JLabel login = new JLabel("Please Login!");
         login.setFont(new Font("TimesNewRoman",Font.BOLD,30));
@@ -110,12 +98,10 @@ public class MainFrame extends JFrame {
         dark_light_mode.addActionListener(new ThemeChanger());
         dark_light_mode.setBorder(BorderFactory.createEmptyBorder());
 
-
         panel.add(resetPass,"dock west");
         panel.add(dark_light_mode,"align center");
 
         panel.add(newUserBTN,"dock east");
-
 
         panel.setMinimumSize(new Dimension(600,50));
         return panel;

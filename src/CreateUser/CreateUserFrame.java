@@ -1,10 +1,7 @@
 package CreateUser;
 
-import LoginPage.LoginBTNListener;
 import LoginPage.MainFrame;
-import LoginPage.NewUserBTNListener;
 import Notes.NoteFrame;
-import com.formdev.flatlaf.FlatIntelliJLaf;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
@@ -12,8 +9,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
-
-import static LoginPage.MainFrame.*;
 
 public class CreateUserFrame extends JFrame {
     static JTextField create_email;
@@ -39,7 +34,6 @@ public class CreateUserFrame extends JFrame {
 
         setSize(750,750);
         setLocationRelativeTo(null);
-        //getContentPane().setBackground(bg_color);
         setResizable(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);

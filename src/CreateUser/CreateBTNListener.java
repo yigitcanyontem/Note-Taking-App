@@ -3,7 +3,6 @@ package CreateUser;
 import DB.SQLConnection;
 import LoginPage.ErrorFrame;
 
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.PreparedStatement;
@@ -20,9 +19,7 @@ public class CreateBTNListener implements ActionListener {
         }else{
             queryAdd();
         }
-
     }
-
     static void queryAdd(){
         try {
             String query = String.format("INSERT INTO users VALUES('%s','%s','%s')", create_email.getText(),String.valueOf(create_password.getPassword()),reset_code.getText());

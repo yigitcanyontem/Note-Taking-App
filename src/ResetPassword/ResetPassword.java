@@ -2,7 +2,6 @@ package ResetPassword;
 
 import LoginPage.MainFrame;
 import Notes.NoteFrame;
-import com.formdev.flatlaf.FlatIntelliJLaf;
 import net.miginfocom.swing.MigLayout;
 
 import javax.swing.*;
@@ -10,8 +9,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Objects;
-
-import static LoginPage.MainFrame.*;
 
 public class ResetPassword extends JFrame {
     static JTextField reset_email;
@@ -39,7 +36,6 @@ public class ResetPassword extends JFrame {
         setResizable(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setVisible(true);
-
     }
 
     JPanel panel(){
@@ -65,7 +61,6 @@ public class ResetPassword extends JFrame {
         JLabel pass = new JLabel("Reset Password!");
         pass.setFont(new Font("TimesNewRoman",Font.BOLD,20));
 
-
         JLabel userlabel = new JLabel("Username");
         JLabel passwordlabel = new JLabel("New Password");
         JLabel resetlabel = new JLabel("Reset Code");
@@ -83,7 +78,6 @@ public class ResetPassword extends JFrame {
         panel.add(resetlabel,"wrap");
         panel.add(reset_resetPass, "span, grow,wrap 15");
         panel.add(resetBTN,"align center");
-
 
         panel.setMinimumSize(new Dimension(600,300));
         return panel;

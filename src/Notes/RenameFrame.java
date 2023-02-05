@@ -1,11 +1,8 @@
 package Notes;
 
 import DB.SQLConnection;
-import LoginPage.ErrorFrame;
 import LoginPage.MainFrame;
-import com.formdev.flatlaf.FlatIntelliJLaf;
 import net.miginfocom.swing.MigLayout;
-
 import javax.swing.*;
 import javax.swing.text.Position;
 import java.awt.*;
@@ -16,8 +13,6 @@ import java.sql.SQLException;
 import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import static LoginPage.MainFrame.*;
 import static Notes.NoteFrame.*;
 
 public class RenameFrame extends JFrame{
@@ -42,7 +37,6 @@ public class RenameFrame extends JFrame{
         setLocationRelativeTo(null);
         setResizable(true);
         setVisible(true);
-
     }
 
     JPanel panel(){

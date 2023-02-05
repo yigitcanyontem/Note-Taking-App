@@ -1,9 +1,7 @@
 package Notes;
 
 import DB.SQLConnection;
-import LoginPage.ErrorFrame;
 import LoginPage.MainFrame;
-import com.formdev.flatlaf.FlatIntelliJLaf;
 import net.miginfocom.swing.MigLayout;
 import javax.swing.*;
 import java.awt.*;
@@ -12,8 +10,6 @@ import java.awt.event.ActionListener;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Objects;
-
-import static LoginPage.MainFrame.*;
 import static Notes.NoteFrame.jList;
 import static Notes.NoteFrame.note_List;
 
@@ -61,7 +57,6 @@ public class NewNoteFrame extends JFrame {
                 }
             }
         });
-
 
         JLabel login = new JLabel("Enter The Title!");
         login.setFont(new Font("TimesNewRoman",Font.BOLD,30));

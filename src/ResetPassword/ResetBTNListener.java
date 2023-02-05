@@ -2,7 +2,6 @@ package ResetPassword;
 
 import DB.SQLConnection;
 import LoginPage.ErrorFrame;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.PreparedStatement;
