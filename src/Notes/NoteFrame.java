@@ -19,7 +19,7 @@ public class NoteFrame extends JFrame {
     static DefaultListModel<String> note_List;
     static JLabel note_title;
     public static JList<String> jList;
-    static JTextArea note;
+    static JTextArea notes;
     static JLabel comment;
     static ImageIcon new_note_icon;
     static ImageIcon save_icon;
@@ -103,11 +103,14 @@ public class NoteFrame extends JFrame {
         note_title.setBorder(BorderFactory.createEtchedBorder());
         note_title.setFont(new Font("TimesNewRoman",Font.BOLD,24));
 
-        note = new JTextArea();
+        notes = new JTextArea();
+        JScrollPane note = new JScrollPane(notes);
         note.setPreferredSize(new Dimension(1000,640));
-        note.setFont(new Font("TimesNewRoman",Font.PLAIN,20));
-        note.setMargin( new Insets(15,15,15,15) );
+        notes.setFont(new Font("TimesNewRoman",Font.PLAIN,20));
+        notes.setMargin( new Insets(15,15,15,15) );
         note.setBorder(BorderFactory.createEtchedBorder());
+
+
 
         scrollPane = new JScrollPane(jList);
         scrollPane.setPreferredSize(new Dimension(400,700));
@@ -116,7 +119,7 @@ public class NoteFrame extends JFrame {
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 note_title.setText("  "+jList.getSelectedValue());
-                note.setText(title_note_map.get(jList.getSelectedValue()));
+                notes.setText(title_note_map.get(jList.getSelectedValue()));
             }
         });
 

@@ -16,7 +16,7 @@ public class SaveBTNListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         try {
-            String query = String.format("UPDATE notes SET note = '%s' WHERE email = '%s' AND title = '%s'", NoteFrame.note.getText(),MainFrame.email.getText(),jList.getSelectedValue());
+            String query = String.format("UPDATE notes SET note = '%s' WHERE email = '%s' AND title = '%s'", NoteFrame.notes.getText(),MainFrame.email.getText(),jList.getSelectedValue());
             PreparedStatement stmt = SQLConnection.connection.prepareStatement(query);
             int temp = jList.getSelectedIndex();
             int rowAffected = stmt.executeUpdate();
