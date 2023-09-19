@@ -7,19 +7,18 @@ This is a notepad app with JDBC (SQLite) integration. Made with Java Swing.
 
 First Register Here
 
-![Uygulama Ekran Görüntüsü](https://lh3.googleusercontent.com/drive-viewer/AAOQEOTTunOkUooCQSpqn3ffS9M5lG0VL4wQWcGzVPTusoTbRGqLfLY0Xg1pzx6zMztp8kZ4Flme588ak_sgTLm7pQlekbYuuA=w1879-h939)
-
+![Uygulama Ekran Görüntüsü](https://yigitcanyontem.azurewebsites.net/images/noteapp/1.png)
 Login
 
-![Uygulama Ekran Görüntüsü](https://lh3.googleusercontent.com/drive-viewer/AAOQEOS5m5k9mm_0TF5kHRyvD5TcCbTIYLrte-9yBPTQvN3tqMEMTixMwBurB7TCTmzQVjTc2XPI-OEVhqphUNBxkdiO0cF-CA=w1879-h939)
+![Uygulama Ekran Görüntüsü](https://yigitcanyontem.azurewebsites.net/images/noteapp/2.png)
 
 Start Adding Notes
 
-![Uygulama Ekran Görüntüsü](https://lh3.googleusercontent.com/drive-viewer/AAOQEOQPu_986vtWR3RSgjd-07Tcxsr_4dr9GL7zpNchhHdGWvIbp6EFjSll3m32Leg4D2SeXbdMjEb6_2EJLnO8vwQbBUB3=w1879-h939)
+![Uygulama Ekran Görüntüsü](https://yigitcanyontem.azurewebsites.net/images/noteapp/3.png)
 
 Light Mode Preview
 
-![Uygulama Ekran Görüntüsü](https://lh3.googleusercontent.com/drive-viewer/AAOQEORM0iXy6xKO1naOwIKClssGN_tjvTgXzpdLdfYg5AYbTh4K1Ek5X3gGXuB6HalJnrWHBsUv19xHKihIKJrRwUpyieuaNw=w1879-h939)
+![Uygulama Ekran Görüntüsü](https://yigitcanyontem.azurewebsites.net/images/noteapp/5.png)
 
 
 ## Buttons and Their Functions
